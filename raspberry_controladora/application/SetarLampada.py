@@ -1,12 +1,12 @@
 from __future__ import annotations
 from typing import TypedDict
 
-from infra.proxy.ArCondicionadoProxy import ArCondicionadoProxy
+from infra.proxy.LampProxy import LampProxy
 
 
-class SetarArCondicionado:
-  def __init__(self, arCondicionadoProxy: ArCondicionadoProxy):
-    self.arCondicionadoProxy = arCondicionadoProxy
+class SetarLampada:
+  def __init__(self, lampProxy: LampProxy):
+    self.lampProxy = lampProxy
 
   def execute(self, input: Input) -> None:
     comando = False
@@ -16,8 +16,7 @@ class SetarArCondicionado:
         comando = False
     else:
        raise ValueError("Comando não suportado")
-    self.arCondicionadoProxy.setValue(input['local'], comando)
+    self.lampProxy.setValue(comando)
   
 class Input(TypedDict):
-  local: str
   comando: str

@@ -1,6 +1,6 @@
 
 
-from infra.PresenceSensorProxy import PresenceSensorProxy
+from infra.proxy.PresenceSensorProxy import PresenceSensorProxy
 
 
 class LerSensorPresenca:

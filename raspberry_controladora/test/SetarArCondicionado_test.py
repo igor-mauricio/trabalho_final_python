@@ -1,6 +1,6 @@
 import pytest
 from application.SetarArCondicionado import SetarArCondicionado
-from infra.ArCondicionadoProxy import FakeArCondicionadoProxy
+from infra.proxy.ArCondicionadoProxy import FakeArCondicionadoProxy
 
 
 def test_deveLigarArCondicionadoDoQuarto() -> None:

@@ -1,4 +1,4 @@
-from infra import TemperatureSensorProxy
+from infra.proxy.TemperatureSensorProxy import TemperatureSensorProxy
 
 
 class LerSensorTemperatura:

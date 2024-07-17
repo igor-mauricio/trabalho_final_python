@@ -1,7 +1,7 @@
 import pytest
 
 from application.LerSensorTemperatura import LerSensorTemperatura
-from infra.TemperatureSensorProxy import FakeTemperatureSensorProxy
+from infra.proxy.TemperatureSensorProxy import FakeTemperatureSensorProxy
 
 
 def test_deveVerificarQuartoComTemperatura42Graus():
