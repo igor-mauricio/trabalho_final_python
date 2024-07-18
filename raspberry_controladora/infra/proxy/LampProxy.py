@@ -1,6 +1,5 @@
 from abc import ABC, abstractmethod
 
-
 class LampProxy(ABC):
   @abstractmethod
   def setValue(self, command: bool): ...
@@ -9,6 +8,8 @@ class LampProxy(ABC):
   def getValue(self) -> bool: ...
 
 class FakeLampProxy(LampProxy):
+  value:bool
+  
   def __init__(self):
     self.value = False
 

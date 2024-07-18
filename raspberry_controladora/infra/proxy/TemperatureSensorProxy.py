@@ -6,6 +6,9 @@ class TemperatureSensorProxy(ABC):
   def read(room: str): ...
 
 class FakeTemperatureSensorProxy(TemperatureSensorProxy):
+  quartoValue: float
+  salaValue: float
+  
   def __init__(self, quartoValue=20, salaValue=30):
     self.quartoValue = quartoValue
     self.salaValue = salaValue

@@ -1,11 +1,12 @@
 from abc import ABC, abstractmethod
 
-
 class PresenceSensorProxy(ABC):
   @abstractmethod
   def read() -> bool: ...
 
 class FakePresenceSensorProxy(PresenceSensorProxy):
+  value: bool
+
   def __init__(self, value=True):
     self.value = value
 

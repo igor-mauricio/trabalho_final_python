@@ -1,6 +1,5 @@
 from abc import ABC, abstractmethod
 
-
 class ArCondicionadoProxy(ABC):
   @abstractmethod
   def setValue(self, room: str, command: bool): ...
