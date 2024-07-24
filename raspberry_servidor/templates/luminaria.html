@@ -1,0 +1,18 @@
+<div class="flex gap-4 rounded-lg bg-[#363636] px-3 py-2 border border-1 border-neutral-500 justify-between" style="filter: drop-shadow(4px 4px 10px #070707);">
+  <div class="flex flex-col justify-between">
+    <div>
+      <h3 class="text-md font-semibold text-white">Luminária</h3>
+      <span class="text-sm text-gray-400"> Terraço </span>
+    </div>
+      <input type="checkbox" class="peer sr-only opacity-0" id="toggle_luminaria" />
+      <label for="toggle_luminaria" class="relative flex h-6 w-11 cursor-pointer items-center rounded-full bg-gray-500 px-0.5 outline-gray-400 transition-colors before:h-5 before:w-5 before:rounded-full before:bg-white before:shadow before:transition-transform before:duration-300 peer-checked:bg-[#8FAF87] peer-checked:before:translate-x-full peer-focus-visible:outline peer-focus-visible:outline-offset-2 peer-focus-visible:outline-gray-400 peer-checked:peer-focus-visible:outline-green-500" for="toggle ">
+            <span class="sr-only">Enable</span>
+      </label>
+    <!-- <button class="flex w-fit items-center rounded-full bg-[#1E1E1E] px-1 text-gray-600">
+      <div class="my-1 h-5 w-5 rounded-full bg-[#8FAF87]"></div>
+      <span class="mx-2 text-sm font-medium"> OFF </span>
+    </button> -->
+  </div>
+  
+  <img class="w-20 my-[-8px]" src="{{ url_for('static', filename='styles/luz.png') }}">
+</div>
