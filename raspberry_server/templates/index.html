@@ -1,0 +1,77 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+</head>  
+<body>
+    
+  <div class="w-full h-screen bg-[#1E1E1E] p-8 flex items-center justify-center ">
+    <div class="w-[700px] flex flex-col gap-4 border border-1 border-neutral-500 px-4 py-4 rounded-lg shadow-xl">
+      
+      <div class="flex-1 flex flex-row gap-4">
+        <div class="flex flex-col gap-4">
+          {% include 'luminaria.html'%}
+          {% include 'arcondicionado.html'%}
+        </div>
+        {% include 'temperaturas.html' %}
+      </div>
+      {% include 'sensordepresenca.html'%}
+    </div>
+  </div>
+  <script>
+  var socket = io();
+
+  socket.on('connect', () => {
+      console.log('Connected to WebSocket server');
+  });
+
+  socket.on('lamp', (value) => {
+      console.log('Received lamp message from server: ' + value);
+      const botaoLuminaria = document.getElementById("toggle_luminaria");
+      botaoLuminaria.checked = value;
+  });
+
+  socket.on('airConditioner', (value) => {
+      console.log('Received airConditioner message from server: ' + value);
+      const botaoArCondicionado = document.getElementById("toggle_ar_quarto");
+      botaoArCondicionado.checked = value;
+  });
+
+  socket.on('temperature', (value) => {
+      console.log('Received temperature message from server: ' + value);
+      const temperatura = document.getElementById("temperature");
+      temperatura.innerHTML = `${Math.round(value * 10) / 10}°C`;
+  });
+
+  function handleLampClick() {
+    const botaoLuminaria = document.getElementById("toggle_luminaria");
+    console.log(botaoLuminaria.checked);
+    socket.emit('lampSwitch', botaoLuminaria.checked);
+  }
+
+  function handleAirConditionerClick() {
+    const botaoArCondicionado = document.getElementById("toggle_ar_quarto");
+    console.log(botaoArCondicionado.checked);
+    socket.emit('airConditionerSwitch', botaoArCondicionado.checked);
+  }
+
+  function changeImage(){
+    console.log("ABCD")
+    let imagesId = ["imagempassos1", "imagempassos2", "imagempassos3"]
+    imagesId.forEach((id) => {
+      const image = document.getElementById(id);
+      if(image.src.includes("/static/styles/presenca_desligado.png")){
+        image.src = "/static/styles/presenca_ligado.png";
+      }
+      else if(image.src.includes("/static/styles/presenca_ligado.png")){
+        image.src = "/static/styles/presenca_desligado.png";
+      }
+    })
+  }
+  </script>
+</body>  
+</html>
+
